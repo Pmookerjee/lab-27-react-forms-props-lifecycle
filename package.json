@@ -4,7 +4,9 @@
   "description": "401 JS --  Lab 27 Reddit Search Engine ===",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "watch": "webpack-dev-server --inline --hot"
   },
   "repository": {
     "type": "git",
