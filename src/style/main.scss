@@ -1,0 +1,46 @@
+
+body {
+  background: black;
+  color: white;
+  font-size: 1em;
+}
+
+div {
+  background: black;
+  border-color: white;
+}
+
+#search {
+  
+  align-items:center;
+  display:flex;
+  justify-content:center;
+  flex-direction:column;
+  width: 100%;
+  padding: .5em;
+}
+
+#submit {
+  margin: .8em;
+
+}
+
+input.error {
+  border-color: red;
+}
+
+#appWrapper {
+  align-items:center;
+  display:flex;
+  justify-content:center;
+  flex-direction:column;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(94, 94, 218)
+}
+
+#list li{
+  list-style-type: decimal;
+}
