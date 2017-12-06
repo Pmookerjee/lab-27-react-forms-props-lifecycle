@@ -56,8 +56,7 @@ class searchForm extends React.Component {
 
     superagent.get(`https://www.reddit.com/r/${this.state.search}.json?limit=${this.state.limit}`)
       .then(result => {
-        console.log('real: ', result.body.data.children )
-        this.props.getTopics(result);
+        this.props.getTopics(result, this.state.limit);
       })
       .catch(err => { console.log('Error is ', err); this.setState({inputClass: 'error'})});
   }

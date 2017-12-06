@@ -33,15 +33,12 @@ class App extends React.Component {
     this.setState({topics: []});
   }
 
-  getTopics(boards) {
-
-     let topics = boards.body.data.children;
+  getTopics(boards, limit) {
+     
+     let topics = (boards.body.data.children).slice(0, limit);
      this.setState({topics});
-     console.log('topics is ', this.state.topics);
 
   }
-
-
 
   render() {
     return (
