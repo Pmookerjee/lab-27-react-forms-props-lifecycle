@@ -17,7 +17,7 @@ class searchForm extends React.Component {
 
     this.state = {
       search: '',
-      limit: 10,
+      limit: 0,
       inputClass: ''
     }
   }
@@ -31,7 +31,7 @@ class searchForm extends React.Component {
     
     this.setState({
       search: '',
-      limit: 10,
+      limit: 0,
       inputClass: ''
     })
   }
@@ -39,7 +39,7 @@ class searchForm extends React.Component {
   componentWillUnmount() {
     this.setState({
       search: '',
-      limit: 10,
+      limit: 0,
       inputClass: ''
     })  
   }
@@ -47,11 +47,17 @@ class searchForm extends React.Component {
   formSubmit(e) {
 
     e.preventDefault();
+    this.setState({inputClass: ''});
+
+    if(this.state.limit < 1 || this.state.limit > 100){
+      this.setState({inputClass: 'error'});
+      return;
+    }
 
     superagent.get(`https://www.reddit.com/r/${this.state.search}.json?limit=${this.state.limit}`)
       .then(result => {
+        console.log('real: ', result.body.data.children )
         this.props.getTopics(result);
-        console.log('props is ', this.props)
       })
       .catch(err => { console.log('Error is ', err); this.setState({inputClass: 'error'})});
   }
